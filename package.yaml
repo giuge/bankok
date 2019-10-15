@@ -1,0 +1,55 @@
+name:                bankok
+version:             0.1.0.0
+github:              "giuge/bankok"
+license:             BSD3
+author:              "Giuseppe Germinaro"
+maintainer:          "g.germinaro88@gmail.com"
+copyright:           "All rights reserved"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/giuge/bankok#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- cassava
+- bytestring
+- vector
+- time
+- text
+- optparse-applicative
+- split
+
+library:
+  source-dirs: src
+
+executables:
+  bankok:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bankok
+
+tests:
+  bankok-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bankok
